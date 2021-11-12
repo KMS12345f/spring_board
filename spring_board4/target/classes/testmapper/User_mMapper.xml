@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.bbs.mapper.User_mMapper">
+	
+	<insert id="mInsert">
+		insert into user_m(mname, mphone, maddr, mage, mgender) 
+		values(#{mname}, #{mphone}, #{maddr}, #{mage}, #{mgender})
+	</insert>
+
+	<select id="list_all" resultType="org.bbs.model.User_mDTO">
+		select * from user_m
+	</select>
+	
+	<select id="list_oneView" resultType="org.bbs.model.User_mDTO">
+		select * from user_m where mno = #{mno}
+	</select>
+	
+	<delete id="mDelete">
+		delete from user_m where mno = #{mno}
+	</delete>
+	
+	<update id="mUpdate">
+		update user_m set mname = #{mname}, mphone = #{mphone}, maddr = #{maddr}, mage = #{mage}, mgender = #{mgender}
+		where mno = #{mno};
+	</update>
+
+</mapper>
